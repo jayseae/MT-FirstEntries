@@ -13,18 +13,16 @@ use MT::Entry;
 
 # version
 use vars qw($VERSION);
-$VERSION = '1.0.0';
+$VERSION = '1.0.1';
 
-my $plugin;
 my $about = {
   name => 'MT-FirstEntries',
   description => 'Retrieves entries from the beginning of a blog or category.',
   author_name => 'Everitz Consulting',
   author_link => 'http://www.everitz.com/',
   version => $VERSION,
-};
-$plugin = MT::Plugin::FirstEntries->new($about);
-MT->add_plugin($plugin);
+}; 
+MT->add_plugin(new MT::Plugin($about));
 
 use MT::Template::Context;
 MT::Template::Context->add_container_tag(FirstEntries => \&FirstEntries);
